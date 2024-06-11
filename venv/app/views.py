@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
 from app.forms import CarrosForm
+from app.models import Carros
 # Create your views here.
 def home(request):
-	return render(request,'index.html')
+	data = {}
+	data['db'] = Carros.objects.all()
+	return render(request,'index.html', data)
 
 def form(request):
 	data = {}
@@ -11,6 +14,6 @@ def form(request):
 
 def create(request):
 	form = CarrosForm(request.POST or None)
-	if form_is_valid():
+	if form.is_valid():
 		form.save()
 		return redirect('home')

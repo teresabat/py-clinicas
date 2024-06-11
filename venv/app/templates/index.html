@@ -24,18 +24,19 @@
 		    </tr>
 		  </thead>
 			  <tbody>
-			    <tr>
-			      <th scope="row">1</th>
-			      <td>Mark</td>
-			      <td>Otto</td>
-			      <td>@mdo</td>
+				{% for dbs in db %}
+				 <tr>
+			      <th>{{dbs.id}}</th>
+			      <td>{{dbs.marca}}</td>
+			      <td>{{dbs.modelo}}</td>
+			      <td>{{dbs.ano}}</td>
+				  <td>
+					<a href="" class="btn btn-dark">Visualizar</a>
+					<a href="" class="btn btn-primary">Editar</a>
+					<a href="" class="btn btn-danger">Excluir</a>
+				  </td>
 			    </tr>
-			    <tr>
-			      <th scope="row">2</th>
-			      <td>Jacob</td>
-			      <td>Thornton</td>
-			      <td>@fat</td>
-			    </tr>
+				{% endfor %}
 	    	</tbody>
 	</div>
 </body>
